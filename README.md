@@ -2,7 +2,7 @@
 
 Aquesta pàgina descriu la segona pràctica de GEI-LP (edició 2021-2022 Q1).
 La vostra tasca és implementar un intèrpret d'un llenguatge de programació
-anomenat Llull i escriure' un pretty-printer per a Llull.
+anomenat Llull i escriure un pretty-printer per a Llull.
 
 ![Llull](llull.png)
 
@@ -177,7 +177,7 @@ L'assignació ha d'avaluar primer l'expressió a la part dreta del `=` i emmagat
 
 ## Lectura
 
-La instrucció de lectura ha de llegir un valor enter del canal d'entrada estàndard i enmagatzemar-lo a la variable dins del `read()`. Exemple: `read()`.
+La instrucció de lectura ha de llegir un valor enter del canal d'entrada estàndard i enmagatzemar-lo a la variable dins del `read()`. Exemple: `read(x)`.
 
 
 ## Escriptura
@@ -187,7 +187,7 @@ La instrucció d'escriptura ha d'avaluar l'expressió dins del `write` i escriur
 
 ## Condicional
 
-La instrucció condicional té la semàntica habitual. El bloc `else` és optatiu. Exemples: `if (x == y) then {z = 1}` i `if (x == y) then {z = 1} else { z := 2 }`. Fixeu-vos que les claus dels blocs sempre són obligatòries (tant als condicions com als procediments, els `while`s i els `for`s).
+La instrucció condicional té la semàntica habitual. El bloc `else` és optatiu. Exemples: `if (x == y) {z = 1}` i `if (x == y) {z = 1} else { z := 2 }`. Fixeu-vos que les claus dels blocs sempre són obligatòries (tant als condicions com als procediments, els `while`s i els `for`s).
 
 
 ## Iteració amb `while`
@@ -198,7 +198,7 @@ Exemple: `while (a > 0) { a = a / 2 }`.
 
 ## Iteració amb `for`
 
-La instrucció iterativa amb `FOR` té la semàntica habitual en C.
+La instrucció iterativa amb `for` té la semàntica habitual en C.
 Exemple: `for (i = 1; i <= n; i = i + 1) { write(i * 10) }`.
 
 
@@ -225,7 +225,7 @@ fals i u per cert (Boole és posterior a Llull).
 
 ## Taules
 
-La creació de taules es fa amb la paraula clau `array`, que crea en el seu primer paràmetre una taula amb tants enters inicialitzats a zero com indiqui el segon paràmetre. Les taules comencen a l'índex zero. Així, `array(p, n + 1)` crea una taula `[0..n]` amb `n + 1` zeros. La consulta d'una taula es fa amb un `get`: `get(t, i)` retorna el valor a la posició `i` de la taula `t`. Igualment, la modificació d'una posició d'una taula es fa amb un `set`: `set(t, i, x)` fixa a `x` el valor a la posició `i` de la taula `t`. Les taules es passen per referència.
+La creació de taules es fa amb la paraula clau `array`, que crea en el seu primer paràmetre una taula amb tants enters inicialitzats a zero com indiqui el segon paràmetre. Les taules comencen a l'índex zero. Així, `array(t, n)` crea una taula `[0..n-1]` amb `n` zeros. La consulta d'una taula es fa amb un `get`: `get(t, i)` retorna el valor a la posició `i` de la taula `t`. Igualment, la modificació d'una posició d'una taula es fa amb un `set`: `set(t, i, x)` fixa a `x` el valor a la posició `i` de la taula `t`. Les taules es passen per referència.
 
 
 
@@ -242,7 +242,7 @@ Malgrat que Llull és força senzill, els programadors poden realitzar molts
 errors. Per aquesta pràctica, només us demanem que detecteu els errors més
 verosímils (divisió per zero, crida a procediment no definit, repetició de
 procediment ja definit, nombre de paràmetres incorrectes, noms de paràmetres
-formals repetits, ...) i que el programa llanci amb una excepció quan es donen.
+formals repetits, accés a un índex inesxistent d'una taula...) i que el programa llanci amb una excepció quan es donen.
 No cal que feu una anàlisi semàntica per errors de tipus entre enters i taules.
 
 
@@ -273,7 +273,7 @@ python3 ramon.py programa.beat
 python3 ramon.py programa.beat bonic.beat
 ```
 
-El **pretty-printer** ha de formatejar el codi amb unes regles d'estil semblants a les utilitzades en aquest document. Per exemple, si el programa fós
+El *pretty-printer* ha de formatejar el codi amb unes regles d'estil semblants a les utilitzades en aquest document. Per exemple, si el programa fós
 
 ```
 void hanoi(n,ori,dst,aux)
