@@ -341,6 +341,4 @@ Utilitzeu  `ANTLR` per escriure la gramàtica i l'intèrpret. Podeu utilitzar ll
 
 - Ramon Llull: https://ca.wikipedia.org/wiki/Ramon_Llull
 
-<center>
 ![Ars magna](ars-magna.png)
-</center>
