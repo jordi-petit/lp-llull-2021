@@ -1,20 +1,22 @@
-# El llenguatge de programació Llull <small>(fonètica: [ˈʎuʎ])</small>
+# El llenguatge de programació Llull
 
-Aquesta pàgina descriu la segona pràctica de GEI-LP (edició 2021-2022 Q1).
-La vostra tasca és implementar un intèrpret d'un llenguatge de programació
-anomenat Llull i escriure un pretty-printer per a Llull.
+Aquesta pàgina descriu la segona pràctica de GEI-LP (edició 2021-2022 Q1). La vostra tasca és implementar un intèrpret i un *pretty-printer* per a un llenguatge de programació anomenat Llull.
 
 ![Llull](llull.png)
 
 
 ## Història
 
-Ramon Llull, nascut a Mallorca cap al 1232, és considerat un profeta de la informàtica. La seva teoria era que la veritat podia ser automatitzada i, que mitjançant una fórmula, es podia demostrar l'existència de Déu (i totes les altres veritats). El seu pla per convertir als infidels al cristianisme era presentar-los una lògica que no podrien refutar. El llenguatge de programació Llull és una eina més en aquesta direcció.
+Ramon Llull, nascut a Mallorca cap al 1232, és considerat un profeta de la informàtica. La seva teoria era que la veritat podia ser automatitzada i, que mitjançant una fórmula, es podia demostrar l'existència de Déu (i de totes les altres veritats). El seu pla per convertir als infidels al cristianisme era presentar-los una lògica que no podrien refutar. El llenguatge de programació Llull és una eina més en aquesta direcció 🤣.
+
+## Fonètica
+
+Llull es pronuncia [ˈʎuʎ].
 
 
 ## Presentació del llenguatge Llull
 
-El llenguatge de programació Llull té un aspecte semblant al C, però amb nombroses simplificacions perquè els profans i infidels el puguin entendre i utilitzar.
+El llenguatge de programació Llull té un aspecte semblant al C, però amb nombroses simplificacions perquè els profans i els infidels el puguin entendre i utilitzar.
 
 Aquest és el *Hello World* en Llull:
 
@@ -27,12 +29,12 @@ void main() {
 
 ```
 
-Com podeu veure, Llull disposa d'accions definides amb `void` (però no ofereixi funcions) i té una instrucció d'escriptura `write`. Els textos s'escriuen entre cometes dobles però només es poden utilitzar dins dels `write`s.
+Com podeu veure, Llull disposa d'accions definides amb `void` (però no té funcions) i ofereix una instrucció d'escriptura `write`. Els textos s'escriuen entre cometes dobles, però només es poden utilitzar dins dels `write`s.
 
-El següent programa mostra com llegir dos nombres i calcular el seu màxim comú divisor utilitzant l'algorisme d'Euclides utilitzant dos procediments i entrada/sortida:
+El següent programa mostra com llegir dos nombres i calcular el seu màxim comú divisor utilitzant l'algorisme d'Euclides amb dos procediments i entrada/sortida:
 
 ```
-void main4() {
+void main() {
     # llegeix dos enters i  n'escriu el seu maxim comu divisor
     write("Escriu dos nombres")
     read(a)
@@ -53,11 +55,11 @@ void euclides(a, b) {
 }
 ```
 
-Les variables són locals a cada invocació de cada procediment i els procediments es poden comunicar a través de paràmetres.
+Les variables són locals a cada invocació de cada procediment i els procediments es poden comunicar a través de paràmetres. Els procediments llisten els noms dels seus paràmetres formals, però no inclouen els seus tipus.
 
-Les variables no han de ser declararades, i poden ser enteres o taules d'enters. Fixeu-vos que Llull utilitza l'autèntic operador de diferència que el beat va introduir a la seva *Ars Magna* i  que mai s'hauria d'haver abandonat: el `<>`.
+Les variables no han de ser declarades, i poden ser de tipus enter o taula d'enters (*array*).
 
-Com es veu a l'exemple, la sintàxi per llegir i escriure és utilitzant `read` i `write` respectivament. Les instruccions no es separen ni acaben amb punts i comes estupids, això només ho necessiten els LPs dels descreguts.
+Com es veu a l'exemple, la sintaxi per llegir i escriure és utilitzant `read` i `write` respectivament. Les instruccions no es separen ni acaben amb punts i comes superflus, això només ho necessiten els LPs dels descreguts. A més, fixeu-vos que Llull utilitza l'autèntic operador de diferència que el beat va introduir a la seva *Ars Magna* i  que mai s'hauria d'haver abandonat: el `<>`.
 
 Els comentaris comencen amb `#` i acaben al final de la seva línia.
 
@@ -65,7 +67,7 @@ L'exemple següent il·lustra l'ús de taules per trobar la llista dels nombres
 primers:
 
 ```
-void main5() {
+void main() {
     read(n)
     array(p, n + 1) # crea un array [0 .. n] inicialitzant totes les posicions a zero
     write(p)
@@ -112,8 +114,7 @@ Si li donem `20` com a entrada, la sortida és
 La creació de taules es fa amb la paraula clau `array`, la consulta
 amb `get` i la modificació amb `set` (l'operació d'indexació era considerada una blasfèmia a l'època d'en Ramon).
 
-El llenguatge de programació Llull compta amb recursivitat. Aquest programa
-mostra com solucionar el problema de les Torres de Hanoi:
+Per tal de plaure a Déu, el llenguatge de programació Llull compta amb recursivitat. Aquest programa mostra com solucionar el problema de les Torres de Hanoi:
 
 ```
 void main() {
@@ -158,10 +159,10 @@ i ANTLR4, tal com s'ha explicat a les classes de laboratori.
 
 Les instruccions de Llull són:
 
-- l'assignació,
-- la lectura,
-- l'escriptura,
-- el condicional amb `if`,
+- l'assignació amb `=`,
+- la lectura amb `read()`,
+- l'escriptura amb `write()`,
+- el condicional amb `if` i potser `else`,
 - la iteració amb `while`,
 - la iteració amb `for`,
 - la invocació a un procediment i,
@@ -182,7 +183,7 @@ La instrucció de lectura ha de llegir un valor enter del canal d'entrada estàn
 
 ## Escriptura
 
-La instrucció d'escriptura ha d'avaluar l'expressió dins del `write` i escriure-la, en una línia, al canal de sortida estàndard. Exemple: `write(x)`. En el cas d'escriure una taula, cal escriure tots els valors entre claudàtors i separats per comes. `write()` pot contenir diversos paràmetres, cal escriure cadascun d'ells a la mateix línia, separats per espais. Els paràmetres poden contenir textos (tancats entre cometes dobles, que apropen més el creient a Déu que les cometes simples).
+La instrucció d'escriptura ha d'avaluar l'expressió dins del `write` i escriure-la, en una línia, al canal de sortida estàndard. Exemple: `write(x)`. En el cas d'escriure una taula, cal escriure tots els seus valors entre claudàtors i separats per comes. `write()` pot contenir diversos paràmetres, cal escriure cadascun d'ells a la mateix línia, separats per espais. Els paràmetres poden contenir textos (tancats entre cometes dobles, que apropen més el creient a Déu que les cometes simples).
 
 
 ## Condicional
@@ -220,7 +221,7 @@ Si una variable encara no ha rebut cap valor, el seu valor és zero. Els
 operadors aritmètics són els habituals (`+`, `-`, `*`, `/`, `%`) i amb la mateixa
 prioritat que en C. Evidentment, es poden usar parèntesis. El
 operadors relacionals (`==`, `<>`, `<`, `>`, `<=`, `>=`) retornen zero per
-fals i u per cert (Boole és posterior a Llull).
+fals i u per cert (Boole és posterior a Llull). Les taules no es poden operar.
 
 
 ## Taules
@@ -233,57 +234,52 @@ La creació de taules es fa amb la paraula clau `array`, que crea en el seu prim
 
 No importa l'ordre de declaració dels procediments. Les variables són locals a
 cada invocació de cada procediment. No hi ha variables globals ni manera
-d'accedir a variables d'altres procediments.
+d'accedir a variables d'altres procediments (només a través dels paràmetres).
 
 
 ## Errors
 
-Malgrat que Llull és força senzill, els programadors poden realitzar molts
-errors. Per aquesta pràctica, només us demanem que detecteu els errors més
-verosímils (divisió per zero, crida a procediment no definit, repetició de
-procediment ja definit, nombre de paràmetres incorrectes, noms de paràmetres
-formals repetits, accés a un índex inesxistent d'una taula...) i que el programa llanci amb una excepció quan es donen.
-No cal que feu una anàlisi semàntica per errors de tipus entre enters i taules.
+Malgrat que Llull és força senzill, els programes poden causar molts errors en temps d'execució. Per aquesta pràctica, només us demanem que detecteu els errors més verosímils (divisió per zero, crida a procediment no definit, repetició de procediment ja definit, nombre de paràmetres incorrectes, noms de paràmetres formals repetits, accés a un índex inesxistent d'una taula...) i que el programa llanci amb una excepció quan es donen. No cal que feu una anàlisi semàntica per errors de tipus entre enters i taules.
 
 
 ## Invocació de l'intèrpret
 
 El vostre intèrpret s'ha d'invocar amb la comanda `python3 llull.py` tot
 passant-li com a paràmetre el nom del fitxer que conté el codi font
-(l'extensió dels fitxers per programes en Llull és `.beat`). Per exemple:
+(l'extensió dels fitxers per programes en Llull és `.llull`). Per exemple:
 
 ```bash
-python3 llull.py programa.beat
+python3 llull.py programa.llull
 ```
 
-Els programes poden començar des de qualsevol procediment.  Per defecte, es comença pel procediment `main`. Si es vol començar el programa des d'un procediment diferent de `main()`, cal donar el seu nom com a segon paràmetre i es poden passar els valors dels seus paràmetres (nombres enters) des de la linia de comandes.
+Els programes poden començar des de qualsevol procediment.  Per defecte, es comença pel procediment `main`. Si es vol començar el programa des d'un procediment diferent de `main()`, cal donar el seu nom com a segon paràmetre i es poden passar els valors dels seus paràmetres (només nombres enters) des de la línia de comandes.
 
 ```bash
-python3 llull.py programa.beat converteix_infidels 10 20
+python3 llull.py programa.llull converteix_infidels 10 20
 ```
 
 
 ## Invocació del *pretty-printer*
 
-El vostre *pretty-printer* s'ha d'invocar amb la comanda `python3 ramon.py` tot
-passant-li com a primer paràmetre el nom del fitxer que conté el codi font a formatejar i, com a segon paràmetre, el fitxer destí (sortida estàndard si no donat). Per exemple:
+El vostre *pretty-printer* s'ha d'invocar amb la comanda `python3 beat.py` tot
+passant-li com a primer paràmetre el nom del fitxer que conté el codi font a *beatificar* i, com a segon paràmetre, el fitxer destí (sortida estàndard si no donat). Per exemple:
 
 ```bash
-python3 ramon.py programa.beat
-python3 ramon.py programa.beat bonic.beat
+python3 beat.py programa.llull
+python3 beat.py programa.llull beatificat.llull
 ```
 
-El *pretty-printer* ha de formatejar el codi amb unes regles d'estil semblants a les utilitzades en aquest document. Per exemple, si el programa fós
+El *pretty-printer* ha de formatar el codi amb unes regles d'estil semblants a les utilitzades en aquest document. Per exemple, si el programa fos
 
 ```
 void hanoi(n,ori,dst,aux)
-{
+{    # la n és un real negatiu
     if(n>0){hanoi(n-1,ori,aux,dst)write(ori,"->",dst)hanoi(n-1,aux,
-        dst, ori)
-    }}
+        dst, ori
+)}}
 ```
 
-la sortida hauria de ser
+la sortida hauria de ser aquest programa elegantment formatat per a major glòria del creador:
 
 ```
 void hanoi(n, ori, dst, aux) {
@@ -295,12 +291,12 @@ void hanoi(n, ori, dst, aux) {
 }
 ```
 
-Recordeu que Arnau de Vilanova, mestre de Ramon Llull, ja va demostrar la necessitat d'indentar amb quatre espais.
+Fixeu-vos que el *pretty-printer* perd els comentaris, ja que aquests poden amagar la veritat de les Escriptures. També, recordeu que Arnau de Vilanova, mestre de Ramon Llull, ja va demostrar la necessitat d'indentar amb quatre espais.
 
 
 ## Extensions
 
-Podeu extendre el llenguatge amb construccions del vostre gust, a condició de mantenir una compatibilitat estricta amb l'especificació donada. A més, cal que documenteu amb precisió les vostres extensions i que creeu programes que les provin i posin de manifest la seva utilitat.
+Podeu extendre el llenguatge amb construccions del vostre gust, a condició de mantenir una compatibilitat estricta amb l'especificació donada (i ser respectuosos amb la teologia de Ramon Llull). A més, cal que documenteu amb precisió les vostres extensions i que creeu programes que les provin i posin de manifest la seva utilitat.
 
 Per exemple, podríeu extendre Llull amb variables i/o constants globals, operadors lògics, funcions que retornin valors, ...
 
@@ -312,28 +308,21 @@ Compte: Les extensions poden portar molta feina, consulteu-ho abans amb el vostr
 Heu de lliurar la vostra pràctica al Racó. Només heu de lliurar un fitxer ZIP
 que, al descomprimir-se generi:
 
-- Un fitxer `requirements.txt` amb les llibreries que utilitza el vostre projecte
+- Un fitxer `README.md` que documenti el vostre projecte.
+    - vegeu, per exemple, https://www.makeareadme.com/.
+
+- Un fitxer `requirements.txt` amb les llibreries que utilitza el vostre projecte.
   - vegeu, per exemple, https://pip.pypa.io/en/stable/user_guide/#requirements-files.
-
-- Un fitxer `README.md` que el documenti
-  - vegeu, per exemple, https://www.makeareadme.com/.
-
-- Un fitxer `llull.py` amb el programa principal de l'intèrpret.
-
-- Un fitxer `ramon.py` amb el programa principal del *pretty-printer*.
 
 - Un fitxer `llull.g4` amb la gramàtica del LP.
 
-- Un fitxer `visitor.py` amb el visitador de l'AST.
+- Un fitxer `llull.py` amb el programa de l'intèrpret, incloent els seus visitadors.
 
-- Si heu fet extensions, podeu afegir fitxers `test-*.beat` com a exemples i jocs de proves.
+- Un fitxer `beat.py` amb el programa del *pretty-printer*, incloent els seus visitadors.
 
-Els vostres fitxers de codi en Python han de seguir les regles d’estı́l PEP8,
-tot i que podeu oblidar les restriccions sobre la llargada màxima de les lı́nies.
-Podeu utilitzar els paquets `pep8` o `autopep8` o http://pep8online.com/ per assegurar-vos
-que seguiu aquestes regles d’estı́l. L’ús de tabuladors en el codi queda prohibit
-(zero directe). Els vostres programes en Llull han de seguir l'estil exposat en aquest
-document, que demostra bon gust i conformança amb les escriptures lul·lianes.
+- Si heu fet extensions, podeu afegir fitxers `test-*.llull` com a exemples i jocs de proves.
+
+Els vostres fitxers de codi en Python han de seguir les regles d’estı́l PEP8, tot i que podeu oblidar les restriccions sobre la llargada màxima de les lı́nies. Podeu utilitzar els paquets `pep8` o `autopep8` o http://pep8online.com/ per assegurar-vos que seguiu aquestes regles d’estı́l. L’ús de tabuladors en el codi queda prohibit (zero directe). Els vostres programes en Llull han de seguir l'estil exposat en aquest document, que demostra bon gust i conformança amb les escriptures lul·lianes (és a dir, passeu-los per beatificador).
 
 El termini de lliurament és el **dilluns 10 de gener a les 23:59**.
 
@@ -343,7 +332,7 @@ no pengeu el vostre projecte en repositoris públics.
 
 ## Llibreries
 
-Utilitzeu  `ANTLR` per escriure la gramàtica i l'intèrpret. Podeu utilitzar lliurament les llibreries **estàndards** de Python.
+Utilitzeu  `ANTLR` per escriure la gramàtica i l'intèrpret. Podeu utilitzar lliurament les llibreries estàndards de Python.
 
 
 # Referències
@@ -351,3 +340,5 @@ Utilitzeu  `ANTLR` per escriure la gramàtica i l'intèrpret. Podeu utilitzar ll
 - ANTLR en Python: https://gebakx.github.io/Python3/compiladors.html#1
 
 - Ramon Llull: https://ca.wikipedia.org/wiki/Ramon_Llull
+
+![Ars magna](ars-magna.png)
