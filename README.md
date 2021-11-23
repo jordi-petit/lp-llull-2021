@@ -29,7 +29,7 @@ void main() {
 
 ```
 
-Com podeu veure, Llull disposa d'accions definides amb `void` (però no té funcions) i ofereix una instrucció d'escriptura `write`. Els textos s'escriuen entre cometes dobles, però només es poden utilitzar dins dels `write`s.
+Com podeu veure, Llull disposa d'accions definides amb `void` (però no té funcions) i ofereix una instrucció d'escriptura `write`. Els textos s'escriuen entre cometes dobles, però només es poden utilitzar dins dels `write`s. Els comentaris comencen amb `#` i acaben al final de la seva línia.
 
 El següent programa mostra com llegir dos nombres i calcular el seu màxim comú divisor utilitzant l'algorisme d'Euclides amb dos procediments i entrada/sortida:
 
@@ -60,8 +60,6 @@ Les variables són locals a cada invocació de cada procediment i els procedimen
 Les variables no han de ser declarades, i poden ser de tipus enter o taula d'enters (*array*).
 
 Com es veu a l'exemple, la sintaxi per llegir i escriure és utilitzant `read` i `write` respectivament. Les instruccions no es separen ni acaben amb punts i comes superflus, això només ho necessiten els LPs dels descreguts. A més, fixeu-vos que Llull utilitza l'autèntic operador de diferència que el beat va introduir a la seva *Ars Magna* i  que mai s'hauria d'haver abandonat: el `<>`.
-
-Els comentaris comencen amb `#` i acaben al final de la seva línia.
 
 L'exemple següent il·lustra l'ús de taules per trobar la llista dels nombres
 primers:
@@ -261,7 +259,7 @@ python3 llull.py programa.llull converteix_infidels 10 20
 
 ## Invocació del *pretty-printer*
 
-El vostre *pretty-printer* s'ha d'invocar amb la comanda `python3 beat.py` tot
+El vostre *pretty-printer* (també anomenat *beatificador* per la semblança amb *beautifier*) s'ha d'invocar amb la comanda `python3 beat.py` tot
 passant-li com a primer paràmetre el nom del fitxer que conté el codi font a *beatificar* i, com a segon paràmetre, el fitxer destí (sortida estàndard si no donat). Per exemple:
 
 ```bash
@@ -279,7 +277,7 @@ void hanoi(n,ori,dst,aux)
 )}}
 ```
 
-la sortida hauria de ser aquest programa elegantment formatat per a major glòria del creador:
+la sortida hauria de ser aquest programa, elegantment formatat per a major glòria del Creador:
 
 ```
 void hanoi(n, ori, dst, aux) {
