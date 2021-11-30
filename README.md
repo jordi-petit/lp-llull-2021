@@ -260,14 +260,13 @@ python3 llull.py programa.llull converteix_infidels 10 20
 ## Invocació del *pretty-printer*
 
 El vostre *pretty-printer* (també anomenat *beatificador* per la semblança amb *beautifier*) s'ha d'invocar amb la comanda `python3 beat.py` tot
-passant-li com a primer paràmetre el nom del fitxer que conté el codi font a *beatificar* i, com a segon paràmetre, el fitxer destí (sortida estàndard si no donat). Per exemple:
+passant-li com a primer paràmetre el nom del fitxer que conté el codi font a *beatificar*. Per exemple:
 
 ```bash
 python3 beat.py programa.llull
-python3 beat.py programa.llull beatificat.llull
 ```
 
-El *pretty-printer* ha de formatar el codi amb unes regles d'estil semblants a les utilitzades en aquest document. Per exemple, si el programa fos
+El *pretty-printer* ha de formatar el codi amb unes regles d'estil semblants a les utilitzades en aquest document i amb uns colors agradables. Per exemple, si el programa fos
 
 ```
 void hanoi(n,ori,dst,aux)
@@ -279,7 +278,7 @@ void hanoi(n,ori,dst,aux)
 
 la sortida hauria de ser aquest programa, elegantment formatat per a major glòria del Creador:
 
-```
+```c
 void hanoi(n, ori, dst, aux) {
     if (n > 0) {
         hanoi(n - 1, ori, aux, dst)
@@ -290,6 +289,8 @@ void hanoi(n, ori, dst, aux) {
 ```
 
 Fixeu-vos que el *pretty-printer* perd els comentaris, ja que aquests poden amagar la veritat de les Escriptures. També, recordeu que Arnau de Vilanova, mestre de Ramon Llull, ja va demostrar la necessitat d'indentar amb quatre espais.
+
+Els colors o estils dels elements del programe els podeu escollir vosaltres lliurament. Utiliteu alguna llibreria de Python per escriure en colors al terminal.
 
 
 ## Extensions
@@ -330,7 +331,7 @@ no pengeu el vostre projecte en repositoris públics.
 
 ## Llibreries
 
-Utilitzeu  `ANTLR` per escriure la gramàtica i l'intèrpret. Podeu utilitzar lliurament les llibreries estàndards de Python.
+Utilitzeu  `ANTLR` per escriure la gramàtica i l'intèrpret. Podeu utilitzar lliurament qualsevol estàndard de Python. A més, podeu utilitzar qualsevol llibreria de Python3 per a escriure en colors, a condició que sigui portable entre sistemes, que s'instal·li amb `pip3` i que aparegui al vostre `requirements.txt`.
 
 
 # Referències
