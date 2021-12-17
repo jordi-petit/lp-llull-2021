@@ -331,7 +331,7 @@ no pengeu el vostre projecte en repositoris públics.
 
 ## Llibreries
 
-Utilitzeu  `ANTLR` per escriure la gramàtica i l'intèrpret. Podeu utilitzar lliurament qualsevol estàndard de Python. A més, podeu utilitzar qualsevol llibreria de Python3 per a escriure en colors, a condició que sigui portable entre sistemes, que s'instal·li amb `pip3` i que aparegui al vostre `requirements.txt`.
+Utilitzeu  `ANTLR` per escriure la gramàtica i l'intèrpret. Podeu utilitzar lliurament qualsevol llibreria estàndard de Python. A més, podeu utilitzar qualsevol llibreria de Python3 per a escriure en colors, a condició que sigui portable entre sistemes, que s'instal·li amb `pip3` i que aparegui al vostre `requirements.txt`.
 
 
 # Referències
